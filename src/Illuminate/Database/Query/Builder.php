@@ -2278,7 +2278,11 @@ class Builder
      */
     public function getBindings()
     {
-        return Arr::flatten($this->bindings);
+        $r = [];
+        foreach($this->bindings as $key=>$v){
+            $r = array_merge($this->bindings[$key],$r);
+        }
+        return $r;
     }
 
     /**
